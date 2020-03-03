@@ -1,14 +1,10 @@
 ﻿using System.Collections.Generic;
-using SelectionCommittee.Entities.Models;
+using System.Data.Entity.Migrations;
+using SelectionCommittee.DAL.Models;
 
-namespace SelectionCommittee.Entities.DataContexts.FacultyMigrations
+namespace SelectionCommittee.DAL.DataContexts.FacultyMigrations
 {
-    using System;
-    using System.Data.Entity;
-    using System.Data.Entity.Migrations;
-    using System.Linq;
-
-    internal sealed class Configuration : DbMigrationsConfiguration<SelectionCommittee.Entities.DataContexts.FacultyContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<FacultyContext>
     {
         public Configuration()
         {
@@ -17,7 +13,7 @@ namespace SelectionCommittee.Entities.DataContexts.FacultyMigrations
             ContextKey = "SelectionCommittee.Entities.DataContexts.FacultyContext";
         }
 
-        protected override void Seed(SelectionCommittee.Entities.DataContexts.FacultyContext context)
+        protected override void Seed(FacultyContext context)
         {
             var faculties = new List<Faculty>
             {

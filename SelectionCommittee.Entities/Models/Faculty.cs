@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace SelectionCommittee.Entities.Models
+namespace SelectionCommittee.DAL.Models
 {
     public class Faculty
     {
@@ -18,6 +14,6 @@ namespace SelectionCommittee.Entities.Models
 
         public int TotalPlacesAmount { get; set; }
 
-        public List<Candidate> Candidates { get; set; }
+        public List<ClientProfile> Candidates { get; set; }
     }
 }

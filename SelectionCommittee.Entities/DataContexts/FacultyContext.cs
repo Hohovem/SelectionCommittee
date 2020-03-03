@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using SelectionCommittee.Entities.Models;
+﻿using System.Data.Entity;
+using SelectionCommittee.DAL.Models;
 
-namespace SelectionCommittee.Entities.DataContexts
+namespace SelectionCommittee.DAL.DataContexts
 {
     public class FacultyContext : DbContext
     {

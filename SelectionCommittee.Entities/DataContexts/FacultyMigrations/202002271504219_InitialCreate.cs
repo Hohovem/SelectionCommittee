@@ -1,8 +1,7 @@
-﻿namespace SelectionCommittee.Entities.DataContexts.FacultyMigrations
+﻿using System.Data.Entity.Migrations;
+
+namespace SelectionCommittee.DAL.DataContexts.FacultyMigrations
 {
-    using System;
-    using System.Data.Entity.Migrations;
-    
     public partial class InitialCreate : DbMigration
     {
         public override void Up()
