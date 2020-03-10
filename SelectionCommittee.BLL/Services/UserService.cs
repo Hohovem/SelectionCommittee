@@ -36,7 +36,7 @@ namespace SelectionCommittee.BLL.Services
                 // создаем профиль клиента
 
                 //TODO разобратся с именем
-                ClientProfile clientProfile = new ClientProfile { Id = int.Parse(user.Id), FirstName = userDto.Name };
+                ClientProfile clientProfile = new ClientProfile {ClientProfileId = int.Parse(user.Id), FirstName = userDto.Name };
                 Database.ClientManager.Create(clientProfile);
                 await Database.SaveAsync();
                 return new OperationDetails(true, "Регистрация успешно пройдена", "");

@@ -10,7 +10,7 @@ namespace SelectionCommittee.DAL.DataContexts.FacultyMigrations
         {
             AutomaticMigrationsEnabled = true;
             MigrationsDirectory = @"DataContexts\FacultyMigrations";
-            ContextKey = "SelectionCommittee.Entities.DataContexts.FacultyContext";
+            ContextKey = "SelectionCommittee.DAL.DataContexts.FacultyContext";
         }
 
         protected override void Seed(FacultyContext context)
@@ -19,17 +19,32 @@ namespace SelectionCommittee.DAL.DataContexts.FacultyMigrations
             {
                 new Faculty
                 {
-                    Name = "EPAM44"
+                    Name = "Физический факультет",
+                    TotalPlacesAmount = 33,
+                    FreePlacesAmount = 12,
+                    About = "Наш факультет был открыт в 2011 году...",
+                    Candidates = new List<ClientProfile>(),
+                    ImagePath = @"~\SelectionCommittee\SelectionCommittee.Web\Content\Images\faculty.jpg"
                 },
 
                 new Faculty
                 {
-                    Name = "EPAM2"
+                    Name = "Химический факультет",
+                    TotalPlacesAmount = 10,
+                    FreePlacesAmount = 3,
+                    About = "Наш факультет был открыт в 2004 году...",
+                    Candidates = new List<ClientProfile>(),
+                    ImagePath = @"~\SelectionCommittee\SelectionCommittee.Web\Content\Images\faculty.jpg"
                 },
 
                 new Faculty
                 {
-                    Name = "EPAM3"
+                    Name = "Информационный факультет",
+                    TotalPlacesAmount = 60,
+                    FreePlacesAmount = 40,
+                    About = "Наш факультет был открыт в 2001 году...",
+                    Candidates = new List<ClientProfile>(),
+                    ImagePath = @"~\SelectionCommittee\SelectionCommittee.Web\Content\Images\faculty.jpg"
                 }
             };
 

@@ -79,9 +79,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataContexts\FacultyContext.cs" />
-    <Compile Include="DataContexts\FacultyMigrations\202002271504219_InitialCreate.cs" />
-    <Compile Include="DataContexts\FacultyMigrations\202002271504219_InitialCreate.designer.cs">
-      <DependentUpon>202002271504219_InitialCreate.cs</DependentUpon>
+    <Compile Include="DataContexts\FacultyMigrations\202003050305282_InitialCreate.cs" />
+    <Compile Include="DataContexts\FacultyMigrations\202003050305282_InitialCreate.designer.cs">
+      <DependentUpon>202003050305282_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="DataContexts\FacultyMigrations\Configuration.cs" />
     <Compile Include="EF\ApplicationContext.cs" />
@@ -102,11 +102,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="DataContexts\FacultyMigrations\202002271504219_InitialCreate.resx">
-      <DependentUpon>202002271504219_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="DataContexts\FacultyMigrations\202003050305282_InitialCreate.resx">
+      <DependentUpon>202003050305282_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

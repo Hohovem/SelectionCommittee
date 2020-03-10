@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Faculties -->
+@using SelectionCommittee.DAL.Models
+@model IEnumerable<SelectionCommittee.DAL.Models.Faculty>
+
+<div class="row">
+    <!-- Image -->
+    <div class="col-md-2 border">
+        Image
+    </div>
+    <div class="col-md-2 border">
+        @Html.ActionLink("Name", "Index", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
+    </div>
+    <div class="col-md-2 border">
+        @Html.ActionLink("Free Places", "Index", new { sortOrder = ViewBag.FreePlacesSortParm, currentFilter = ViewBag.CurrentFilter })
+    </div>
+    <div class="col-md-1 border">
+        @Html.ActionLink("Total places", "Index", new { sortOrder = ViewBag.TotalPlacesSortParm, currentFilter = ViewBag.CurrentFilter })
+    </div>
+    <div class="col-md-5 border">About</div>
+</div>
+
+<!-- Generated Content -->
+<!-- item -->
+
+@foreach (var faculty in Model)
+{
+    <div class="row">
+        <div class="col-md-2 border">
+            <img src="../../Content/Images/faculty.jpg" class="img-fluid" />
+        </div>
+        <div class="col-md-2 border">
+            @faculty.Name
+        </div>
+        <div class="col-md-2 border">
+            @faculty.FreePlacesAmount
+        </div>
+        <div class="col-md-1 border">
+            @faculty.TotalPlacesAmount
+        </div>
+        <div class="col-md-5 border">
+            @faculty.About
+        </div>
+    </div>
+}
+

@@ -33,13 +33,13 @@
                 <!-- Links -->
                 <ul class="navbar-nav justify-content-center">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Home</a>
+                        @Html.ActionLink("Home", "Index", "Home", null, htmlAttributes: new { @class = "nav-link" })
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Faculties</a>
+                        @Html.ActionLink("Faculty", "Index", "Faculty", null, htmlAttributes: new {@class = "nav-link"})
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
+                        @Html.ActionLink("Contact", "Index", "Contact", null, htmlAttributes: new { @class = "nav-link" })
                     </li>
 
                     <!-- Dropdown -->
@@ -59,7 +59,6 @@
                     </li>*@
 
                 </ul>
-                <!-- Links -->
 
                 @Html.Partial("_LoginPartial")
             </div>
@@ -70,13 +69,11 @@
 
         <main class="content">
             <div class="row">
-                <div class="col-md-3">
-                </div>
-                <div class="col-md-6 ">
+                <div class="col-md-1"></div>
+                <div class="col-md-10 ">
                     @RenderBody()
                 </div>
-                <div class="col-md-3">
-                </div>
+                <div class="col-md-1"></div>
             </div>
         </main>
 

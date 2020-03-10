@@ -6,13 +6,17 @@ namespace SelectionCommittee.DAL.Models
     public class Faculty
     {
         [Key]
-        public int FacultyId { get; set; }
+        public int Id { get; set; }
+
+        public int FreePlacesAmount { get; set; }
+
+        public int TotalPlacesAmount { get; set; }
 
         public string Name { get; set; }
 
-        public int BudgetPlacesAmount { get; set; }
+        public string ImagePath { get; set; }
 
-        public int TotalPlacesAmount { get; set; }
+        public string About { get; set; }
 
         public List<ClientProfile> Candidates { get; set; }
     }
