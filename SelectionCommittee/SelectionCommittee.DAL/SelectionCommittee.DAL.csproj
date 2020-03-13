@@ -58,12 +58,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EF\ApplicationContext.cs" />
-    <Compile Include="EF\ApplicationMigrations\202003121020055_InitialCreate.cs" />
-    <Compile Include="EF\ApplicationMigrations\202003121020055_InitialCreate.designer.cs">
-      <DependentUpon>202003121020055_InitialCreate.cs</DependentUpon>
+    <Compile Include="EF\ApplicationMigrations\202003122305471_Initialcreate.cs" />
+    <Compile Include="EF\ApplicationMigrations\202003122305471_Initialcreate.designer.cs">
+      <DependentUpon>202003122305471_Initialcreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EF\ApplicationMigrations\202003122311443_SecondMigration.cs" />
+    <Compile Include="EF\ApplicationMigrations\202003122311443_SecondMigration.designer.cs">
+      <DependentUpon>202003122311443_SecondMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="EF\ApplicationMigrations\Configuration.cs" />
-    <Compile Include="EF\EnrollmentContext.cs" />
     <Compile Include="Entities\ApplicationRole.cs" />
     <Compile Include="Entities\ApplicationUser.cs" />
     <Compile Include="Entities\ClientProfile.cs" />
@@ -80,15 +83,18 @@
     <Compile Include="Repositories\EnrolleeRepository.cs" />
     <Compile Include="Repositories\EnrollmentRepostiory.cs" />
     <Compile Include="Repositories\FacultyRepository.cs" />
-    <Compile Include="Repositories\IdentityUnitOfWork.cs" />
+    <Compile Include="Repositories\UnitOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="EF\ApplicationMigrations\202003121020055_InitialCreate.resx">
-      <DependentUpon>202003121020055_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="EF\ApplicationMigrations\202003122305471_Initialcreate.resx">
+      <DependentUpon>202003122305471_Initialcreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EF\ApplicationMigrations\202003122311443_SecondMigration.resx">
+      <DependentUpon>202003122311443_SecondMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -72,27 +72,47 @@ namespace SelectionCommittee.Web.Controllers
                 {
                     Email = viewModel.Email,
                     Password = viewModel.Password,
-                    Role = "user"
+
+                    //TODO перенести потом присвоение ролей
+                    Role = "user",
+
+                    FirstName = viewModel.FirstName,
+                    LastName = viewModel.LastName,
+                    MiddleName = viewModel.MiddleName,
+                    Region = viewModel.Region,
+                    Town = viewModel.Town,
+                    UserName = viewModel.Email
                 };
+
                 OperationDetails operationDetails = await UserService.Create(userDto);
+                ClaimsIdentity claim = await UserService.Authenticate(userDto);
+
                 if (operationDetails.Succedeed)
-                    //TODO разобратся с этим
-                    return View("SuccessRegister");
+                {
+                    AuthenticationManager.SignOut();
+                    AuthenticationManager.SignIn(new AuthenticationProperties
+                    {
+                        IsPersistent = true
+                    }, claim);
+
+                    return RedirectToAction("Index", "Home");
+                }
                 else
+                {
                     ModelState.AddModelError(operationDetails.Property, operationDetails.Message);
+                }   
             }
             return View(viewModel);
         }
+
+        //Первичный аккаунт
         private async Task SetInitialDataAsync()
         {
             await UserService.SetInitialData(new UserDTO
             {
-                //TODO переписать
-                Email = "somemail@mail.ru",
-                UserName = "somemail@mail.ru",
-                Password = "ad46D_ewr3",
-                Name = "Семен Семенович Горбунков",
-                Address = "ул. Спортивная, д.30, кв.75",
+                Email = "Hohovem@Hohovem",
+                UserName = "Admin",
+                Password = "123456",
                 Role = "admin",
             }, new List<string> { "user", "admin" });
         }

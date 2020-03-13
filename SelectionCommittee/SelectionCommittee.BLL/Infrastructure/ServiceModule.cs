@@ -18,7 +18,7 @@ namespace SelectionCommittee.BLL.Infrastructure
         }
         public override void Load()
         {
-            Bind<IUnitOfWork>().To<IdentityUnitOfWork>().WithConstructorArgument(connectionString);
+            Bind<IUnitOfWork>().To<UnitOfWork>().WithConstructorArgument(connectionString);
         }
     }
 }

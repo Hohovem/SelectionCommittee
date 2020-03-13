@@ -1,4 +1,7 @@
-﻿namespace SelectionCommittee.DAL.EF.ApplicationMigrations
+﻿using System.Collections.Generic;
+using SelectionCommittee.DAL.Entities;
+
+namespace SelectionCommittee.DAL.EF.ApplicationMigrations
 {
     using System;
     using System.Data.Entity;
@@ -15,10 +18,32 @@
 
         protected override void Seed(SelectionCommittee.DAL.EF.ApplicationContext context)
         {
-            //  This method will be called after migrating to the latest version.
+            var faculties = new List<Faculty>
+            {
+                new Faculty
+                {
+                    Name = "Физический факультет",
+                    TotalPlacesAmount = 33,
+                    BudgetPlacesAmount = 12
+                },
 
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method
-            //  to avoid creating duplicate seed data.
+                new Faculty
+                {
+                    Name = "Химический факультет",
+                    TotalPlacesAmount = 10,
+                    BudgetPlacesAmount = 3
+                },
+
+                new Faculty
+                {
+                    Name = "Информационный факультет",
+                    TotalPlacesAmount = 60,
+                    BudgetPlacesAmount = 40
+                }
+            };
+
+            faculties.ForEach(fac => context.Faculties.AddOrUpdate(fac));
+            context.SaveChanges();
         }
     }
 }

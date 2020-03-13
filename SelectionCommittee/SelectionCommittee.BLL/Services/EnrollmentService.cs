@@ -22,7 +22,7 @@ namespace SelectionCommittee.BLL.Services
             Database = uow;
         }
 
-        public void MakeOrder(EnrollmentDTO enrollmentDto)
+        public bool MakeRegister(EnrollmentDTO enrollmentDto)
         {
             //TODO перезаполнить правильно
             //Faculty phone = Database.Faculties.Get(enrollmentDto.PhoneId);
@@ -44,6 +44,7 @@ namespace SelectionCommittee.BLL.Services
             //};
             //Database.Orders.Create(order);
             //Database.Save();
+            return false;
         }
 
         public IEnumerable<FacultyDTO> GetFaculties()
@@ -51,6 +52,39 @@ namespace SelectionCommittee.BLL.Services
             // применяем автомаппер для проекции одной коллекции на другую
             var mapper = new MapperConfiguration(cfg => cfg.CreateMap<Faculty, FacultyDTO>()).CreateMapper();
             return mapper.Map<IEnumerable<Faculty>, List<FacultyDTO>>(Database.Faculties.GetAll());
+        }
+
+        public IEnumerable<FacultyDTO> GetFaculties(string sortOrder)
+        {
+            // применяем автомаппер для проекции одной коллекции на другую
+            var mapper = new MapperConfiguration(cfg => cfg.CreateMap<Faculty, FacultyDTO>()).CreateMapper();
+            var faculties = mapper.Map<IEnumerable<Faculty>, List<FacultyDTO>>(Database.Faculties.GetAll());
+
+            IEnumerable<FacultyDTO> sortedFaculties;
+
+            switch (sortOrder)
+            {
+                case "name_desc":
+                    sortedFaculties = faculties.OrderByDescending(s => s.Name);
+                    break;
+                case "Budget Places":
+                    sortedFaculties = faculties.OrderBy(s => s.BudgetPlacesAmount);
+                    break;
+                case "free_places_desc":
+                    sortedFaculties = faculties.OrderByDescending(s => s.BudgetPlacesAmount);
+                    break;
+                case "Total Places":
+                    sortedFaculties = faculties.OrderBy(s => s.TotalPlacesAmount);
+                    break;
+                case "total_places_desc":
+                    sortedFaculties = faculties.OrderByDescending(s => s.TotalPlacesAmount);
+                    break;
+                default:  // Name ascending 
+                    sortedFaculties = faculties.OrderBy(s => s.Name);
+                    break;
+            }
+
+            return sortedFaculties;
         }
 
         public FacultyDTO GetFaculty(int? id)
@@ -63,7 +97,7 @@ namespace SelectionCommittee.BLL.Services
             
             return new FacultyDTO
             {
-                //TODO проверить инициализацию
+                //TODO добавить автомаппер?
                 Name = faculty.Name,
                 BudgetPlacesAmount = faculty.BudgetPlacesAmount,
                 TotalPlacesAmount = faculty.TotalPlacesAmount,

@@ -9,7 +9,6 @@ using Ninject;
 using Ninject.Modules;
 using Ninject.Web.Mvc;
 using SelectionCommittee.BLL.Infrastructure;
-using SelectionCommittee.Web.Util;
 
 namespace SelectionCommittee.Web
 {
@@ -24,7 +23,7 @@ namespace SelectionCommittee.Web
 
             // внедрение зависимостей
             NinjectModule orderModule = new EnrollmentModule();
-            NinjectModule serviceModule = new ServiceModule("ApplicationConnection");
+            NinjectModule serviceModule = new ServiceModule("DefaultConnection");
             var kernel = new StandardKernel(orderModule, serviceModule);
             DependencyResolver.SetResolver(new NinjectDependencyResolver(kernel));
         }

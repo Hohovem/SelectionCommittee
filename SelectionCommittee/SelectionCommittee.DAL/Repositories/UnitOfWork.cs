@@ -11,7 +11,7 @@ using SelectionCommittee.DAL.Interfaces;
 
 namespace SelectionCommittee.DAL.Repositories
 {
-    public class IdentityUnitOfWork : IUnitOfWork
+    public class UnitOfWork : IUnitOfWork
     {
         private ApplicationContext db;
 
@@ -23,7 +23,7 @@ namespace SelectionCommittee.DAL.Repositories
         private ApplicationRoleManager roleManager;
         private IClientManager clientManager;
 
-        public IdentityUnitOfWork(string connectionString)
+        public UnitOfWork(string connectionString)
         {
             db = new ApplicationContext(connectionString);
             userManager = new ApplicationUserManager(new UserStore<ApplicationUser>(db));

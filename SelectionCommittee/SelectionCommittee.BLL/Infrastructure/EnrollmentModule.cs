@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.ModelBinding;
-using Ninject.Modules;
+﻿using Ninject.Modules;
 using SelectionCommittee.BLL.Interfaces;
 using SelectionCommittee.BLL.Services;
 
-namespace SelectionCommittee.Web.Util
+namespace SelectionCommittee.BLL.Infrastructure
 {
     public class EnrollmentModule : NinjectModule
     {

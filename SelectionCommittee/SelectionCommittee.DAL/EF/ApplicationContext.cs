@@ -18,13 +18,13 @@ namespace SelectionCommittee.DAL.EF
 
         public ApplicationContext(string conectionString) : base(conectionString)
         {
-            //TODO сделать начальный инициализатор потом (помоему он нужен в конструкторе без параметров)
-            Database.SetInitializer(new StoreDbInitializer());
+            //TODO Заходит но не дропает
+            //Database.SetInitializer(new StoreDbInitializer());
         }
 
         public ApplicationContext()
         {
-            Database.SetInitializer<ApplicationContext>(new StoreDbInitializer());
+            //Database.SetInitializer<ApplicationContext>(new StoreDbInitializer());
         }
 
         public class StoreDbInitializer : DropCreateDatabaseIfModelChanges<ApplicationContext>

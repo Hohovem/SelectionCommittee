@@ -10,6 +10,6 @@ namespace SelectionCommittee.DAL.Entities
         public int BudgetPlacesAmount { get; set; }
         public int TotalPlacesAmount { get; set; }
 
-        public ICollection<Enrollment> Enrollments { get; set; }
+        public IEnumerable<Enrollment> Enrollments { get; set; }
     }
 }

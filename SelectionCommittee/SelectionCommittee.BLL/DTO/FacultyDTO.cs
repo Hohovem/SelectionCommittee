@@ -6,8 +6,6 @@ using System.Threading.Tasks;
 
 namespace SelectionCommittee.BLL.DTO
 {
-    //TODO сделать как надо
-
     public class FacultyDTO
     {
         public int Id { get; set; }

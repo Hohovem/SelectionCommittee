@@ -10,9 +10,10 @@ namespace SelectionCommittee.BLL.Interfaces
     //TODO фейк или нет
     public interface IEnrollmentService
     {
-        void MakeOrder(EnrollmentDTO enrollmentDto);
+        bool MakeRegister(EnrollmentDTO enrollmentDto);
         FacultyDTO GetFaculty(int? id);
         IEnumerable<FacultyDTO> GetFaculties();
+        IEnumerable<FacultyDTO> GetFaculties(string sortOrder);
         void Dispose();
     }
 }

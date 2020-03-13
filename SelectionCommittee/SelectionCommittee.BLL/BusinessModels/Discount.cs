@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SelectionCommittee.BLL.BusinessModels
 {
-    //TODO Фейк
+    //TODO Создать подобный класс
     public class Discount
     {
         public Discount(decimal val)

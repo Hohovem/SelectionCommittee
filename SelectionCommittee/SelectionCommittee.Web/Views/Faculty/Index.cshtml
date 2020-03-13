@@ -1,0 +1,70 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Faculties -->
+@model IEnumerable<SelectionCommittee.Web.Models.FacultyViewModel>
+
+@*<div class="row">
+        <div class="col-md-2 border">
+            Image
+        </div>
+        <div class="col-md-2 border">
+            @Html.ActionLink("Name", "Index", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
+        </div>
+        <div class="col-md-2 border">
+            @Html.ActionLink("Budget Places", "Index", new { sortOrder = ViewBag.BudgetPlacesSortParm, currentFilter = ViewBag.CurrentFilter })
+        </div>
+        <div class="col-md-1 border">
+            @Html.ActionLink("Total places", "Index", new { sortOrder = ViewBag.TotalPlacesSortParm, currentFilter = ViewBag.CurrentFilter })
+        </div>
+        <div class="col-md-5 border">About</div>
+    </div>*@
+
+<!-- Generated Content -->
+<!-- item -->
+@*@foreach (var faculty in Model)
+    {
+        <div class="row">
+            <div class="col-md-2 border">
+                <img src="../../Content/Images/faculty.jpg" class="img-fluid" />
+            </div>
+            <div class="col-md-2 border">
+                @faculty.Name
+            </div>
+            <div class="col-md-2 border">
+                @faculty.BudgetPlacesAmount
+            </div>
+            <div class="col-md-1 border">
+                @faculty.TotalPlacesAmount
+            </div>
+            <div class="col-md-5 border">
+
+            </div>
+        </div>
+    }*@
+
+<table>
+    <tr>
+        <th colspan="2">@Html.ActionLink("Name", "Index", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })</th>
+        <th>@Html.ActionLink("Budget Places", "Index", new { sortOrder = ViewBag.BudgetPlacesSortParm, currentFilter = ViewBag.CurrentFilter })</th>
+        <th>@Html.ActionLink("Total Places", "Index", new { sortOrder = ViewBag.TotalPlacesSortParm, currentFilter = ViewBag.CurrentFilter })</th>
+    </tr>
+    @foreach (var faculty in Model)
+    {
+        <tr>
+            <td>@faculty.Name</td>
+            <td>Image here</td>
+            <td>@faculty.BudgetPlacesAmount</td>
+            <td>@faculty.TotalPlacesAmount</td>
+            <td>
+                @using (Html.BeginForm("Register", "Faculty", FormMethod.Post))
+                {
+                    <input type="hidden" name="facultyId" value="@faculty.Id" />
+                    <button name="Register" class="btn btn-light">Register</button>
+                }
+            </td>
+        </tr>
+    }
+</table>

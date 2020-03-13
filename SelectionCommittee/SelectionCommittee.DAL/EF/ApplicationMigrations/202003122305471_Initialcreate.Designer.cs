@@ -7,13 +7,13 @@ namespace SelectionCommittee.DAL.EF.ApplicationMigrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.0")]
-    public sealed partial class InitialCreate : IMigrationMetadata
+    public sealed partial class Initialcreate : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialCreate));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Initialcreate));
         
         string IMigrationMetadata.Id
         {
-            get { return "202003121020055_InitialCreate"; }
+            get { return "202003122305471_Initialcreate"; }
         }
         
         string IMigrationMetadata.Source

@@ -29,12 +29,24 @@ namespace SelectionCommittee.BLL.Services
             {
                 user = new ApplicationUser { Email = userDto.Email, UserName = userDto.Email };
                 var result = await Database.UserManager.CreateAsync(user, userDto.Password);
+                
+                //TODO модифицировать ошибку создания аккаунта
                 if (result.Errors.Count() > 0)
                     return new OperationDetails(false, result.Errors.FirstOrDefault(), "");
+
                 // добавляем роль
                 await Database.UserManager.AddToRoleAsync(user.Id, userDto.Role);
+
                 // создаем профиль клиента
-                ClientProfile clientProfile = new ClientProfile { Id = user.Id, Address = userDto.Address, Name = userDto.Name };
+                ClientProfile clientProfile = new ClientProfile
+                {
+                    Id = user.Id,
+                    FirstName = userDto.FirstName,
+                    LastName = userDto.LastName,
+                    MiddleName = userDto.MiddleName,
+                    Region = userDto.Region,
+                    Town = userDto.Town
+                };
                 Database.ClientManager.Create(clientProfile);
                 await Database.SaveAsync();
                 return new OperationDetails(true, "Регистрация успешно пройдена", "");

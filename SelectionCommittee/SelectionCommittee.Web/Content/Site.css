@@ -1,6 +1,36 @@
 ﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.content {
+    flex: 1;
+}
+
+.navbar-brand img {
+    width: 50px;
+}
+
+.topbutton {
+    width: 100px;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 50px;
+    right: 50px;
+    cursor: pointer;
+    color: #333;
+    font-family: verdana;
+    font-size: 12px;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -khtml-border-radius: 5px;
+}
+
+.topbutton img {
+    height: 50px;
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -21,4 +51,45 @@ input,
 select,
 textarea {
     max-width: 280px;
+}
+
+table {
+    border-spacing: 0 10px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+}
+
+th {
+    padding: 10px 20px;
+    background: beige;
+    color: #F9C941;
+    border-right: 2px solid;
+    font-size: 0.9em;
+}
+
+th:first-child {
+    text-align: left;
+}
+
+th:last-child {
+    border-right: none;
+}
+
+td {
+    vertical-align: middle;
+    padding: 10px;
+    font-size: 14px;
+    text-align: center;
+    border-top: 2px solid beige;
+    border-bottom: 2px solid beige;
+    border-right: 2px solid beige;
+}
+
+td:first-child {
+    border-left: 2px solid beige;
+    border-right: none;
+}
+
+td:nth-child(2) {
+    text-align: left;
 }

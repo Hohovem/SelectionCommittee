@@ -12,8 +12,7 @@ namespace SelectionCommittee.BLL.Services
     {
         public IUserService CreateUserService(string connection)
         {
-            //TODO перепроверить после решение проблемы с Unit of Work для идентити и общего
-            return new UserService(new IdentityUnitOfWork(connection));
+            return new UserService(new UnitOfWork(connection));
         }
     }
 }

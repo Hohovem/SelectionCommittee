@@ -6,36 +6,82 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+
+    @*@model IEnumerable<SelectionCommittee.Entities.Models.Faculty>*@
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
+    <!--Navbar-->
+    <nav class="navbar navbar-light navbar-expand-md bg-light">
 
-                @Html.Partial("_LoginPartial")
+        <!-- Navbar brand -->
+        <a class="navbar-brand" href="#">
+            <img class="image-brand" />
+        </a>
+
+        <!-- Collapse button -->
+        <button class="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#collapsingNavbar3">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Collapsible content -->
+        <div class="collapse navbar-collapse"
+             id="collapsingNavbar3">
+
+            <!-- Links -->
+            
+            <ul class="navbar-nav justify-content-center">
+                <li class="nav-item @(ViewContext.RouteData.Values["Controller"].ToString() == "Home" ? "active" : "")">
+                    @Html.ActionLink("Home", "Index", "Home", null, htmlAttributes: new { @class = "nav-link" })
+                </li>
+                <li class="nav-item @(ViewContext.RouteData.Values["Controller"].ToString() == "Faculty" ? "active" : "")">
+                    @Html.ActionLink("Faculty", "Index", "Faculty", null, htmlAttributes: new { @class = "nav-link" })
+                </li>
+                <li class="nav-item @(ViewContext.RouteData.Values["Controller"].ToString() == "Contact" ? "active" : "")">
+                    @Html.ActionLink("Contact", "Index", "Contact", null, htmlAttributes: new { @class = "nav-link" })
+                </li>
+                <li class="nav-item @(ViewContext.RouteData.Values["Controller"].ToString() == "About" ? "active" : "")">
+                    @Html.ActionLink("About", "Index", "About", null, htmlAttributes: new { @class = "nav-link" })
+                </li>
+            </ul>
+
+            @Html.Partial("_LoginPartial")
+        </div>
+        <!-- Collapsible content -->
+
+    </nav>
+    <!--/.Navbar-->
+
+    <main class="content">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10 ">
+                @RenderBody()
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+    </main>
+
+    <footer class="bg-dark text-white mt-4">
+        <div class="container-fluid py-3">
+            <div class="row">
+                <div class="col-md-3">
+                    <h5>Footer</h5>
+                </div>
+                <div class="col-md-3"></div>
+                <div class="col-md-3"></div>
+                <div class="col-md-3"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">I stay at the bottom of the viewport! <span class="small"><br>Unless the page content pushes me further.</span></div>
+                <div class="col-md-3"></div>
+                <div class="col-md-3 text-right small align-self-end">©2017 Brand, Inc.</div>
             </div>
         </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
+    </footer>
+
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

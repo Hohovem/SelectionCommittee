@@ -28,20 +28,6 @@ namespace SelectionCommittee.Web.Controllers
             return View();
         }
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
-
         public ActionResult MakeEnrollment(int? id)
         {
             try
@@ -63,7 +49,8 @@ namespace SelectionCommittee.Web.Controllers
             try
             {
                 var enrollmentDto = new EnrollmentDTO() { /*PhoneId = order.PhoneId, Address = order.Address, PhoneNumber = order.PhoneNumber*/ };
-                enrollmentService.MakeOrder(enrollmentDto);
+                //TODO добавить проверку на факт регистрации
+                enrollmentService.MakeRegister(enrollmentDto);
                 return Content("<h2>Ваш заказ успешно оформлен</h2>");
             }
             catch (ValidationException ex)
