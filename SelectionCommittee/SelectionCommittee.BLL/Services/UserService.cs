@@ -13,6 +13,9 @@ using SelectionCommittee.DAL.Interfaces;
 
 namespace SelectionCommittee.BLL.Services
 {
+    /// <summary>
+    /// Сервис отвечающий за регистрацию, аутентификацию и прочее
+    /// </summary>
     public class UserService : IUserService
     {
         IUnitOfWork Database { get; set; }

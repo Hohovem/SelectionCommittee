@@ -13,9 +13,12 @@ using SelectionCommittee.DAL.Interfaces;
 
 namespace SelectionCommittee.BLL.Services
 {
+    /// <summary>
+    /// Сервис отвечающий за факультеты и операции с ними
+    /// </summary>
     public class EnrollmentService : IEnrollmentService
     {
-        IUnitOfWork Database { get; set; }
+        IUnitOfWork Database { get; }
 
         public EnrollmentService(IUnitOfWork uow)
         {
@@ -25,25 +28,6 @@ namespace SelectionCommittee.BLL.Services
         public bool MakeRegister(EnrollmentDTO enrollmentDto)
         {
             //TODO перезаполнить правильно
-            //Faculty phone = Database.Faculties.Get(enrollmentDto.PhoneId);
-
-            //// валидация
-            //if (phone == null)
-            //    throw new ValidationException("Телефон не найден", "");
-
-            //// применяем скидку
-            //decimal sum = new Discount(0.1m).GetDiscountedPrice(phone.Price);
-
-            //Enrollment enrollmentder = new Enrollment()
-            //{
-            //    EnrollmentDate = DateTime.Now,
-            //    //Address = orderDto.Address,
-            //    //PhoneId = phone.Id,
-            //    //Sum = sum,
-            //    //PhoneNumber = orderDto.PhoneNumber
-            //};
-            //Database.Orders.Create(order);
-            //Database.Save();
             return false;
         }
 

@@ -19,6 +19,7 @@ namespace SelectionCommittee.Web.Controllers
             this.enrollmentService = enrollmentService;
         }
 
+        //TODO добавить поиск и пагинацию
         public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page)
         {
             ViewBag.CurrentSort = sortOrder;
@@ -51,16 +52,17 @@ namespace SelectionCommittee.Web.Controllers
             return View(faculties);
         }
 
-        public ActionResult Register()
+        public ActionResult Register(string facultyId)
         {
-            string peps = "";
-            return View(peps);
+            //Отрисовка интерйса по айди факультета
+            return View();
         }
 
+        //TODO переделать название
         [HttpPost]
-        public ActionResult Register(string temp)
+        public ActionResult Register(EnrollmentController model)
         {
-
+            //Регистрация
             return View();
         }
     }

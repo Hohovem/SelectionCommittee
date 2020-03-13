@@ -8,6 +8,9 @@ using SelectionCommittee.DAL.Repositories;
 
 namespace SelectionCommittee.BLL.Services
 {
+    /// <summary>
+    /// Создание сервисов через овин
+    /// </summary>
     public class ServiceCreator : IServiceCreator
     {
         public IUserService CreateUserService(string connection)

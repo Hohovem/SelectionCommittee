@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace SelectionCommittee.BLL.Infrastructure
 {
+    //TODO добавить больше
     class ValidationException : Exception
     {
         public string Property { get; protected set; }

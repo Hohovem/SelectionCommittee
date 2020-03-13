@@ -61,7 +61,7 @@ namespace SelectionCommittee.DAL.Repositories
             if (disposed) return;
             if (disposing)
             {
-                //TODO перепроверить нужен ли (т.к. его тут раньше небыло)
+                //TODO перепроверить
                 db.Dispose();
                 userManager.Dispose();
                 roleManager.Dispose();

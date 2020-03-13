@@ -11,9 +11,5 @@ namespace SelectionCommittee.BLL.DTO
         public int Id { get; set; }
 
         public DateTime EnrollmentDate { get; set; }
-
-        //public Enrollee Candidate { get; set; }
-
-        //public Faculty Faculty { get; set; }
     }
 }

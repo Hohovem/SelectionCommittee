@@ -60,7 +60,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BusinessModels\Discount.cs" />
+    <Compile Include="BusinessModels\SomeBuisnessClassLikeGetDiscout.cs" />
     <Compile Include="DTO\EnrollmentDTO.cs" />
     <Compile Include="DTO\FacultyDTO.cs" />
     <Compile Include="DTO\UserDTO.cs" />
