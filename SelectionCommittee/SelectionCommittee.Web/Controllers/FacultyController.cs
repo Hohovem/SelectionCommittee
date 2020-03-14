@@ -54,11 +54,14 @@ namespace SelectionCommittee.Web.Controllers
 
         public ActionResult Register(string facultyId)
         {
-            var som = facultyId;
+            var mapper = new MapperConfiguration(cfg => cfg.CreateMap<FacultyDTO, FacultyViewModel>()).CreateMapper();
 
-            string note = enrollmentService.GetFaculty(Int32.Parse(som)).Name;
+            //TODO сделать проверку по парсу инта
+            FacultyDTO facultyDto = enrollmentService.GetFaculty(Int32.Parse(facultyId));
+            FacultyViewModel faculties = mapper.Map<FacultyDTO, FacultyViewModel>(facultyDto);
+
             //Отрисовка интерйса по айди факультета
-            return View();
+            return View(faculties);
         }
 
         //TODO переделать название
