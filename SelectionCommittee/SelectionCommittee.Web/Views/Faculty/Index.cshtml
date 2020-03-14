@@ -59,7 +59,7 @@
             <td>@faculty.BudgetPlacesAmount</td>
             <td>@faculty.TotalPlacesAmount</td>
             <td>
-                @using (Html.BeginForm("Register", "Faculty", FormMethod.Post))
+                @using (Html.BeginForm("Register", "Faculty", FormMethod.Get))
                 {
                     <input type="hidden" name="facultyId" value="@faculty.Id" />
                     <button name="Register" class="btn btn-light">Register</button>

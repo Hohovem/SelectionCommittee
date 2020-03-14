@@ -54,6 +54,9 @@ namespace SelectionCommittee.Web.Controllers
 
         public ActionResult Register(string facultyId)
         {
+            var som = facultyId;
+
+            string note = enrollmentService.GetFaculty(Int32.Parse(som)).Name;
             //Отрисовка интерйса по айди факультета
             return View();
         }
@@ -62,6 +65,7 @@ namespace SelectionCommittee.Web.Controllers
         [HttpPost]
         public ActionResult Register(EnrollmentController model)
         {
+            
             //Регистрация
             return View();
         }
