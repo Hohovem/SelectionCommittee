@@ -66,11 +66,15 @@
     <Compile Include="EF\ApplicationMigrations\202003122311443_SecondMigration.designer.cs">
       <DependentUpon>202003122311443_SecondMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="EF\ApplicationMigrations\202003191948475_SecondMigration1.cs" />
+    <Compile Include="EF\ApplicationMigrations\202003191948475_SecondMigration1.designer.cs">
+      <DependentUpon>202003191948475_SecondMigration1.cs</DependentUpon>
+    </Compile>
     <Compile Include="EF\ApplicationMigrations\Configuration.cs" />
     <Compile Include="Entities\ApplicationRole.cs" />
     <Compile Include="Entities\ApplicationUser.cs" />
     <Compile Include="Entities\ClientProfile.cs" />
-    <Compile Include="Entities\Enrollee.cs" />
+    <Compile Include="Entities\Discipline.cs" />
     <Compile Include="Entities\Enrollment.cs" />
     <Compile Include="Entities\Faculty.cs" />
     <Compile Include="Identity\ApplicationRoleManager.cs" />
@@ -95,6 +99,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EF\ApplicationMigrations\202003122311443_SecondMigration.resx">
       <DependentUpon>202003122311443_SecondMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EF\ApplicationMigrations\202003191948475_SecondMigration1.resx">
+      <DependentUpon>202003191948475_SecondMigration1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

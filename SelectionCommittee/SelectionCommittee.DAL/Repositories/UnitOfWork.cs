@@ -16,7 +16,7 @@ namespace SelectionCommittee.DAL.Repositories
         private ApplicationContext db;
 
         private EnrollmentRepostiory _enrollmentRepostiory;
-        private EnrolleeRepository _enrolleeRepository;
+        //private EnrolleeRepository _enrolleeRepository;
         private FacultyRepository _facultyRepository;
 
         private ApplicationUserManager userManager;
@@ -32,7 +32,7 @@ namespace SelectionCommittee.DAL.Repositories
         }
 
         //Main
-        public IRepository<Enrollee> Enrollees => _enrolleeRepository ?? (_enrolleeRepository = new EnrolleeRepository(db));
+        //public IRepository<Enrollee> Enrollees => _enrolleeRepository ?? (_enrolleeRepository = new EnrolleeRepository(db));
         public IRepository<Enrollment> Enrollments => _enrollmentRepostiory ?? (_enrollmentRepostiory = new EnrollmentRepostiory(db));
         public IRepository<Faculty> Faculties => _facultyRepository ?? (_facultyRepository = new FacultyRepository(db));
 

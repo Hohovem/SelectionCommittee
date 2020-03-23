@@ -12,7 +12,8 @@ namespace SelectionCommittee.DAL.EF
     public class ApplicationContext : IdentityDbContext<ApplicationUser>
     {
         public DbSet<ClientProfile> ClientProfiles { get; set; }
-        public DbSet<Enrollee> Enrollees { get; set; }
+        //TODO разобратся с сущностью юзера, как получить данные
+        //public DbSet<ApplicationUser> ApplicationUsers { get; set; }
         public DbSet<Faculty> Faculties { get; set; }
         public DbSet<Enrollment> Enrollments { get; set; }
 

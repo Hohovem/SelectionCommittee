@@ -7,5 +7,6 @@ namespace SelectionCommittee.Web.Models
 {
     public class EnrollmentViewModel
     {
+        public string Email { get; set; }
     }
 }

@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -20,18 +20,8 @@ namespace SelectionCommittee.Web.Controllers
         }
 
         //TODO добавить поиск и пагинацию
-        public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page)
+        public ActionResult Index()
         {
-            ViewBag.CurrentSort = sortOrder;
-            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
-            ViewBag.BudgetPlacesSortParm = sortOrder == "Budget Places" ? "budget_places_desc" : "Budget Places";
-            ViewBag.TotalPlacesSortParm = sortOrder == "Total Places" ? "total_places_desc" : "Total Places";
-
-            var mapper = new MapperConfiguration(cfg => cfg.CreateMap<FacultyDTO, FacultyViewModel>()).CreateMapper();
-
-            IEnumerable<FacultyDTO> facultyDtos = enrollmentService.GetFaculties(sortOrder);
-            IEnumerable<FacultyViewModel> faculties = mapper.Map<IEnumerable<FacultyDTO>, List<FacultyViewModel>>(facultyDtos);
-
             //TODO добавить поиск
             //if (searchString != null)
             //{
@@ -49,19 +39,21 @@ namespace SelectionCommittee.Web.Controllers
             //int pageSize = 3;
             //int pageNumber = (page ?? 1);
 
-            return View(faculties);
+            return View();
         }
 
+        //TODO добавить потом
         public ActionResult Register(string facultyId)
         {
             var mapper = new MapperConfiguration(cfg => cfg.CreateMap<FacultyDTO, FacultyViewModel>()).CreateMapper();
 
             //TODO сделать проверку по парсу инта
             FacultyDTO facultyDto = enrollmentService.GetFaculty(Int32.Parse(facultyId));
-            FacultyViewModel faculties = mapper.Map<FacultyDTO, FacultyViewModel>(facultyDto);
+            FacultyViewModel facultyViewModel = mapper.Map<FacultyDTO, FacultyViewModel>(facultyDto);
 
             //Отрисовка интерйса по айди факультета
-            return View(faculties);
+            //TODO другую вью модель поставить
+            return View(facultyViewModel);
         }
 
         //TODO переделать название
@@ -71,6 +63,34 @@ namespace SelectionCommittee.Web.Controllers
             
             //Регистрация
             return View();
+        }
+
+        public ActionResult Add()
+        {
+            var model = new FacultyViewModel();
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult Add(FacultyViewModel model)
+        {
+            return View();
+        }
+
+        public ActionResult ViewAll(string sortOrder, string currentFilter, string searchString, int? page)
+        {
+            ViewBag.CurrentSort = sortOrder;
+            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewBag.BudgetPlacesSortParm = sortOrder == "Budget Places" ? "budget_places_desc" : "Budget Places";
+            ViewBag.TotalPlacesSortParm = sortOrder == "Total Places" ? "total_places_desc" : "Total Places";
+
+            var mapper = new MapperConfiguration(cfg => cfg.CreateMap<FacultyDTO, FacultyViewModel>()).CreateMapper();
+
+            IEnumerable<FacultyDTO> facultyDtos = enrollmentService.GetFaculties(sortOrder);
+            IEnumerable<FacultyViewModel> faculties = mapper.Map<IEnumerable<FacultyDTO>, List<FacultyViewModel>>(facultyDtos);
+
+            return View(faculties);
         }
     }
 }

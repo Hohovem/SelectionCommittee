@@ -17,7 +17,7 @@ namespace SelectionCommittee.DAL.Interfaces
         Task SaveAsync();
 
         //Custom block
-        IRepository<Enrollee> Enrollees { get; }
+        //IRepository<ApplicationUser> Users { get; }
         IRepository<Enrollment> Enrollments { get; }
         IRepository<Faculty> Faculties { get; }
         void Save();

@@ -1,0 +1,35 @@
+﻿@model IEnumerable<SelectionCommittee.Web.Models.FacultyViewModel>
+
+@{
+    ViewBag.Title = "Register";
+    Layout = null;
+}
+
+<table>
+    <tr>
+        <th colspan="2">@Html.ActionLink("Name", "Index", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })</th>
+        <th>@Html.ActionLink("Budget Places", "Index", new { sortOrder = ViewBag.BudgetPlacesSortParm, currentFilter = ViewBag.CurrentFilter })</th>
+        <th>@Html.ActionLink("Total Places", "Index", new { sortOrder = ViewBag.TotalPlacesSortParm, currentFilter = ViewBag.CurrentFilter })</th>
+    </tr>
+    @foreach (var faculty in Model)
+    {
+        <tr>
+            <td>@faculty.Name</td>
+            <td>Image here</td>
+            <td>@faculty.BudgetPlacesAmount</td>
+            <td>@faculty.TotalPlacesAmount</td>
+            <td>
+                @using (Html.BeginForm("Register", "Faculty", FormMethod.Get))
+                {
+                    <input type="hidden" name="facultyId" value="@faculty.Id" />
+                    <button name="Register" class="btn btn-light">Register</button>
+                }
+            </td>
+        </tr>
+    }
+</table>
+<div class="justify-content-center"></div>
+<input type="button"
+       value="Add Faculty"
+       onclick="location.href='@Url.Action("Add")'"
+       class="btn btn-light" />

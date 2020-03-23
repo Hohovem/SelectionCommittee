@@ -15,7 +15,5 @@ namespace SelectionCommittee.DAL.Identity
             : base(store)
         {
         }
-
-
     }
 }

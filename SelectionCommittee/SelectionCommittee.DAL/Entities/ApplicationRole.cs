@@ -9,9 +9,6 @@ namespace SelectionCommittee.DAL.Entities
 {
     public class ApplicationRole : IdentityRole
     {
-        void fase()
-        {
-            
-        }
+        //void fase() { }
     }
 }
